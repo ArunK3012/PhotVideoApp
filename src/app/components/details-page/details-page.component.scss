@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.details {
+  position: absolute;
+  top: 16%;
+  width: 66%;
+  margin-left: 17%;
+  height: 51.5%;
+
+  .bg-image {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat !important;
+    background-position-y: center !important;
+    background-position-x: center !important;
+    background-size: 100% !important;
+    overflow: hidden;
+    display: flex;
+
+    .androidImage {
+      display: none;
+      position: absolute;
+      top: 8%;
+      height: 73%;
+      width: 100%;
+    }
+
+    .image {
+      width: 100%;
+    }
+
+    .header {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .favourite {
+      position: absolute;
+      top: 3%;
+      justify-content: space-between;
+      display: flex;
+      width: 100%;
+      height: 9%;
+
+      p {
+        color: white;
+        margin-left: 8%;
+      }
+
+      .zoom {
+        width: 28%;
+
+        .favouriteAdded {
+          border: none;
+          background: none;
+          left: 8%;
+          position: relative;
+
+          .heart {
+            width: 62%;
+          }
+        }
+
+        button {
+          background-color: white;
+          border: none;
+          width: 28%;
+          height: 40px;
+          position: relative;
+          left: 6%;
+
+          img {
+            width: 22px;
+          }
+        }
+
+        .btn-zoomIn {
+          border-radius: 4px 0 0 4px;
+          margin-left: 3%;
+        }
+
+        .btn-zoomOut {
+          border-radius: 0 4px 4px 0;
+          margin-left: 1%;
+        }
+      }
+    }
+
+
+    .photographer {
+      width: 100%;
+      height: 8%;
+      position: absolute;
+      top: 12%;
+
+      .favouriteAdded {
+        border: none;
+        background: none;
+      }
+
+      .icon {
+        width: 4%;
+        position: absolute;
+        left: 3%;
+      }
+
+      .name {
+        position: absolute;
+        margin-left: 9%;
+        color: white;
+        font-size: 16px;
+        width: 73%;
+        top: 17%;
+      }
+
+      .androidheart {
+        display: none;
+      }
+    }
+
+    .btns {
+      display: none;
+    }
+  }
+}
+
+.footer {
+  position: absolute;
+  top: 87%;
+  width: 100%;
+}
+
+@media screen and (max-width: 420px) {
+
+  .details {
+    width: 100%;
+    margin-left: 0;
+    height: 73%;
+    top: 0;
+    overflow: hidden;
+
+    .bg-image {
+      height: 100%;
+
+      .image {
+        display: none;
+      }
+
+      .androidImage {
+        display: block;
+        height: 100%;
+      }
+
+      .header {
+        display: block;
+        position: absolute;
+        width: 100%;
+        background-color: #212121;
+        height: 10%;
+
+        .arrow {
+          width: 25px;
+          position: absolute;
+          top: 28%;
+          left: 2%;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        p {
+          position: relative;
+          top: 9px;
+          color: white;
+          background-color: #212121;
+          width: 70%;
+          margin-left: 10%;
+          font-size: 20px;
+        }
+
+        .options {
+          width: 4%;
+          position: absolute;
+          top: 26%;
+          height: 51%;
+          right: 5%;
+        }
+      }
+
+      .favourite {
+        display: none;
+      }
+
+
+      .photographer {
+        height: 5%;
+
+        .icon {
+          width: 6%;
+        }
+
+        .name {
+          top: 5%;
+          margin-left: 11%;
+        }
+
+        .androidheart {
+          display: block;
+          width: 6%;
+          position: absolute;
+          right: 5%;
+        }
+      }
+
+      .btns {
+        display: block;
+        position: relative;
+        top: 68%;
+        width: 100%;
+        text-align: center;
+        height: 7%;
+
+        button {
+          background-color: white;
+          border: none;
+          width: 28%;
+          height: 40px;
+          position: relative;
+          left: 6%;
+
+          img {
+            width: 22px;
+            position: absolute;
+            top: 22%;
+            left: 34%;
+          }
+        }
+
+        .btn-zoomIn {
+          border-radius: 4px 0 0 4px;
+          width: 16%;
+          left: -2%;
+        }
+
+        .btn-zoomOut {
+          border-radius: 0 4px 4px 0;
+          width: 16%;
+          left: -1%;
+        }
+      }
+
+    }
+  }
+
+  .footer {
+    top: 81.5%;
+    height: 18.5%;
+  }
+}

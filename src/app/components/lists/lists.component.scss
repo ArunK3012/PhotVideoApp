@@ -1,0 +1,46 @@
+.photo {
+    width: 23%;
+    height: 190px;
+    overflow: hidden;
+    display: inline-block;
+    margin-right: 2%;
+    margin-bottom: 2%;
+
+    .bg-image{
+        width: 100%;
+        background-size: cover !important;
+        height: 100%;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .favourite {
+        width: 11%;
+    position: relative;
+    margin-left: 82%;
+    top: 4%;
+    }
+
+    .details {
+        position: relative;
+    top: 62%;
+    width: 100%;
+
+      .photographer {
+            width: 16%;
+    margin-left: 5%;
+      }
+
+      p {
+        position: relative;
+    font-size: 14px;
+    top: -25px;
+    left: 25%;
+    color: white;
+      }
+    }
+
+
+  }

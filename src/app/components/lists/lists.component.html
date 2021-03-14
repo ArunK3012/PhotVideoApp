@@ -1,0 +1,9 @@
+<div class="photo" *ngFor="let list of data; let i= index">
+    <div class="bg-image" [ngStyle]="{background: 'url('+ list.src.portrait + ')'}">
+        <img class="favourite" src="../../../assets/Path-1.png" alt="">
+        <div class="details">
+            <img class="photographer" src="../../../assets/photgrapher_icon.png" alt="">
+            <p> {{list.photographer}}</p>
+        </div>
+    </div>
+</div>

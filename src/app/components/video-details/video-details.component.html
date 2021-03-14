@@ -1,0 +1,45 @@
+<app-home (searchItem)="displayPhoto($event)"></app-home>
+
+<div class="details">
+    <div class="bg-image">
+        <img class="image" *ngIf="!playVideo" src="{{data.image}}" alt="">
+        <div class="video" *ngIf="playVideo">
+          <video class="video1" controls (click)="toggleVideo($event)" preload="auto" #videoPlayer>
+            <source class="video2" [src]="image" type="video/mp4"/>
+          </video>
+        </div>
+        <div class="header">
+            <img (click)="goBack()" class="arrow" src="../../../assets/arrow back.png" alt="">
+            <p>Lorem Picsum</p>
+            <img class="options" src="../../../assets/more vert.png" alt="">
+        </div>
+        <div class="favourite">
+            <p>Lorem Picsum</p>
+            <button class="favouriteAdded" *ngIf="!favouriteAdded(data)" (click)="addToFavourite(data)">
+                <img class="heart" src="../../../assets/details_heart.png"
+                    alt="" >
+            </button>
+            <button (click)="removeFavourite(data.id)" class="favouriteAdded" *ngIf="favouriteAdded(data)">
+                <img  class="heart"
+                    src="../../../assets/details_heart_filled.png" alt="" >
+            </button>
+        </div>
+        <div class="middle" *ngIf="playBtn">
+            <img class="videoIcon" (click)="playVideoButton()" src="../../../assets/video_play.png" alt="">
+        </div>
+        <div class="photographer">
+            <img class="icon" src="../../../assets/photographer_icon.png" alt="">
+            <p class="name">{{name}}</p>
+            <!-- <img class="androidheart" src="../../../assets/details_heart.png" alt=""> -->
+            <button class="favouriteAdded" *ngIf="!favouriteAdded(data)" (click)="addToFavourite(data)">
+                <img class="androidheart" src="../../../assets/details_heart.png" alt="">
+            </button>
+            <button (click)="removeFavourite(data.id)" class="favouriteAdded" *ngIf="favouriteAdded(data)">
+                <img class="androidheart" src="../../../assets/details_heart_filled.png" alt="">
+            </button>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <app-footer></app-footer>
+</div>

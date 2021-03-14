@@ -1,0 +1,91 @@
+<body>
+    <div class="home-header" *ngFor="let image of data">
+        <div *ngIf="homePage" class="bg-image" [ngStyle]="{background: 'url('+ image.src.landscape + ')'}">
+            <!--    -->
+            <!-- <img class="background" src="{{image.src.landscape}}" alt=""> -->
+            <div class="image">
+                <img src="../../../assets/Logo.png" alt="">
+                <img class="android" src="../../../assets/android-logo.png" alt="">
+            </div>
+            <div class="description">
+                <h2>Discover the world's best photos & videos</h2>
+                <p>Best memories online</p>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search photos, videos, artists"
+                        aria-label="Recipient's username" aria-describedby="button-addon2" [(ngModel)]="searchData"
+                        (keyup.enter)="onSearch()" />
+                    <button class="btn btn-outline-primary" type="button" id="button-addon2"
+                        data-mdb-ripple-color="dark" (click)="onSearch()">
+                        SEARCH
+                    </button>
+                </div>
+                <div class="input-group rounded" id="android-input">
+                    <input type="search" class="form-control rounded" placeholder="Search photos, videos, artists"
+                        aria-label="Search" aria-describedby="search-addon" [(ngModel)]="searchData" (keyup.enter)="onSearch()"/>
+                    <img src="../../../assets/search.png" alt="" (click)="onSearch()">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!homePage" class="details">
+            <div class="searchItem">
+                <div class="image">
+                    <img src="../../../assets/Logo_dark.png" alt="">
+                    <img class="android" src="../../../assets/android-logo.png" alt="">
+                </div>                
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search photos, videos, artists"
+                        aria-label="Recipient's username" aria-describedby="button-addon2" [(ngModel)]="searchData"
+                        (keyup.enter)="onSearch()" />
+                    <button routerLink="/home/photo" class="btn btn-outline-primary" type="button" id="button-addon2"
+                        data-mdb-ripple-color="dark" (click)="onSearch()">
+                        SEARCH
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!scrollPage" class="scrollDetails">
+            <div class="scrollSearchItem">
+                <div class="image">
+                    <img src="../../../assets/Logo_dark.png" alt="">
+                    <img class="android" src="../../../assets/android-logo.png" alt="">
+                </div>                
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search photos, videos, artists"
+                        aria-label="Recipient's username" aria-describedby="button-addon2" [(ngModel)]="searchData"
+                        (keyup.enter)="onSearch()" />
+                    <button routerLink="/home/photo" class="btn btn-outline-primary" type="button" id="button-addon2"
+                        data-mdb-ripple-color="dark" (click)="onSearch()">
+                        SEARCH
+                    </button>
+                </div>
+            </div>
+            <div class="scrollSearchAndroid">
+                <img class="androidScroll" src="../../../assets/android-logo.png" alt="">
+                <div class="input-group rounded" id="android-input-scroll">
+                    <input type="search" class="form-control rounded" placeholder="Search photos, videos, artists"
+                        aria-label="Search" aria-describedby="search-addon" [(ngModel)]="searchData" (keyup.enter)="onSearch()"/>
+                        <img id="search" src="../../../assets/search.png" alt="">
+                    <img src="../../../assets/white_search.png" alt="" (click)="onSearch()">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="homePage" class="home-body">
+        <div class="title">
+            <div class="btn-router">
+                <button routerLink="/home/photo" routerLinkActive="active" class="photos">Photos</button>
+                <button routerLink="/home/video" routerLinkActive="active" class="videos">Videos</button>
+            </div>
+            <button routerLink="/home/favourite" routerLinkActive="active" class="favourites">Favourite</button>
+        </div>
+    </div>
+    <div *ngIf="!scrollPage" class="scroll-home-body">
+        <div class="title">
+            <div class="btn-router">
+                <button routerLink="/home/photo" routerLinkActive="active" class="photos">Photos</button>
+                <button routerLink="/home/video" routerLinkActive="active" class="videos">Videos</button>
+            </div>
+            <button routerLink="/home/favourite" routerLinkActive="active" class="favourites">Favourite</button>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,197 @@
+.favouriteList {
+  position: relative;
+  top: -256px;
+  margin-left: 17%;
+  width: 67.5%;
+  height: 133vh;
+
+  .photo {
+    width: 22.9%;
+    height: 190px;
+    overflow: hidden;
+    display: inline-block;
+    margin-right: 2%;
+    margin-bottom: 2%;
+
+    a {
+      text-decoration: none;
+    }
+
+    .bg-image {
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat !important;
+      background-position-x: center !important;
+      background-size: cover !important;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .favourite {
+      width: 11%;
+      position: relative;
+      margin-left: 82%;
+      top: 4%;
+    }
+
+    .videoIcon {
+      width: 26%;
+      position: relative;
+      left: 37%;
+      top: 22%;
+    }
+
+    .details {
+      position: relative;
+      top: 66%;
+      width: 100%;
+
+      .photographer {
+        width: 16%;
+        margin-left: 5%;
+      }
+
+      p {
+        position: relative;
+        font-size: 14px;
+        top: -25px;
+        left: 25%;
+        color: white;
+      }
+    }
+
+    .detailsVideo {
+      position: relative;
+      top: 38%;
+      width: 100%;
+
+      .photographer {
+        width: 16%;
+        margin-left: 5%;
+      }
+
+      p {
+        position: relative;
+        font-size: 14px;
+        top: -23px;
+        left: 25%;
+        color: white;
+      }
+    }
+  }
+
+  .home-footer {
+    height: 14vh;
+    text-align: center;
+    opacity: 76%;
+    background-color: #F2F2F2;
+    box-shadow: 0 1px 0 0 #a7a8a9;
+    width: 148%;
+    position: relative;
+    left: -25%;
+    top: -1%;
+
+    .footer {
+      color: #BABABA;
+      font-size: 14px;
+      font-weight: 500;
+      position: relative;
+      top: 43%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .favouriteList {
+
+    .photo {
+      width: 30%;
+      height: 150px;
+      margin-left: 1%;
+
+      .favourite {
+        margin-left: 75%;
+      }
+
+      .details {
+        top: 54%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+
+  .favouriteList {
+
+    .photo {
+      width: 47%;
+
+      .favouriteAdded {
+        left: 73%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+
+  .favouriteList {
+    width: 92%;
+    margin-left: 4%;
+
+    .photo {
+      width: 100%;
+
+      .videoIcon {
+        top: 18%;
+        width: 16%;
+      }
+
+      .favourite {
+        width: 6.5%;
+        position: relative;
+        margin-left: 89%;
+        top: 8%;
+      }
+
+      .details {
+        top: 58%;
+
+        .photographer {
+          width: 10%;
+        }
+
+        p {
+          margin-left: 18%;
+          left: 0;
+        }
+      }
+
+      .detailsVideo {
+        top: 58%;
+
+        .photographer {
+          width: 10%;
+          margin-left: 6%;
+        }
+
+        p {
+          margin-left: 19%;
+          left: 0;
+          top: -26px;
+        }
+      }
+    }
+
+    .home-footer {
+      display: none;
+    }
+  }
+}

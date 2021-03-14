@@ -1,0 +1,32 @@
+<app-home (searchItem)="displayVideo($event)"></app-home>
+
+<div class="favouriteList">
+    <!-- <div class="photo"> -->
+    <div class="photo" *ngFor="let list of details; let i= index">
+        <div class="bg-image" routerLink="/home/photo/details/{{list.id}}"
+            [ngStyle]="{background: 'url('+ list.src.portrait + ')'}">
+            <img (click)="removeFavourite($event, list)" class="favourite" src="../../../assets/fav_added.png" alt="">
+            <div class="details">
+                <img class="photographer" src="../../../assets/photographer_icon.png" alt="">
+                <p> {{list.photographer}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="photo" *ngFor="let list of videoDetails; let i= index">
+        <div class="bg-image" routerLink="/home/video/details/{{list.id}}"
+            [ngStyle]="{background: 'url('+ list.image + ') center center'}">
+            <img (click)="removeFavourite($event, list)" class="favourite" src="../../../assets/fav_added.png" alt="">
+            <img class="videoIcon" src="../../../assets/video_play.png" alt="">
+            <div class="detailsVideo">
+                <img class="photographer" src="../../../assets/photographer_icon.png" alt="">
+                <p> {{list.user.name}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+    <div class="home-footer">
+        <div class="footer">
+            &#169; Robosoft Technologies 1996-2020
+        </div>
+    </div>
+</div>
