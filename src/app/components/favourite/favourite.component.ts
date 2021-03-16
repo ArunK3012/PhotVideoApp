@@ -12,10 +12,11 @@ export class FavouriteComponent implements OnInit {
 
   data: any = [];
   searchName = '';
-  isPhoto = true;
+  video: any = [];
   details: any = [];
   videoDetails: any = [];
-  // ngif = false;
+  image: any = [];
+  photographer: any = [];
 
   constructor(private service: ApiServiceService,
               private commonservice: CommonServiceService) { }
@@ -24,11 +25,11 @@ export class FavouriteComponent implements OnInit {
     this.data = this.commonservice.getFavourites();
     if (this.data !== null) {
       for (let i = 0; i < this.data.length; i++) {
-        if (this.data[i].photographer !== undefined) {
-          this.details.push(this.data[i]);
-        }
         if (this.data[i].photographer === undefined) {
           this.videoDetails.push(this.data[i]);
+        }
+        if (this.data[i].photographer !== undefined) {
+          this.details.push(this.data[i]);
         }
       }
     }

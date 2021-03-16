@@ -20,10 +20,19 @@ export class VideoDetailsComponent implements OnInit {
   playVideo = false;
   name = '';
   playBtn = true;
+  currentTime: any;
+  pauseTime: any;
+  video: any;
+  juice: any;
+  btn: any;
+  btns: any;
+  videos: any;
+  scroll: any;
+  fullScreen: any;
 
   constructor(private router: Router,
-              private service: ApiServiceService,
-              private commonService: CommonServiceService) { }
+    private service: ApiServiceService,
+    private commonService: CommonServiceService) { }
 
   ngOnInit(): void {
     const id = this.router.url.split('/').pop();
@@ -31,11 +40,10 @@ export class VideoDetailsComponent implements OnInit {
       this.data = res;
       this.image = res.video_files[0].link;
       this.name = res.user.name;
-      // this.androidImage = res.src.large2x;
     });
   }
 
-  displayPhoto(name: string): void{
+  displayPhoto(name: string): void {
     this.searchName = name;
   }
 
@@ -48,19 +56,53 @@ export class VideoDetailsComponent implements OnInit {
     this.playBtn = false;
   }
 
-  addToFavourite(id: any): void{
+  addToFavourite(id: any): void {
     this.commonService.saveFavourites(id);
   }
 
-  removeFavourite(id: number): void{
+  removeFavourite(id: number): void {
     this.commonService.removeCurrentFavourite(id);
   }
 
-  favouriteAdded(index: Favourite): any{
+  favouriteAdded(index: Favourite): any {
     return this.commonService.checkFavourites(index);
   }
 
-  goBack(): void{
+  goBack(): void {
     window.history.back();
   }
+
+  toggle() {
+    this.video = document.getElementById('video-pause');
+    this.juice = document.getElementById('bar');
+    this.btn = document.getElementById('play-pause');
+
+    if (this.video.paused) {
+      this.btn.className = 'pause';
+      this.video.play();
+      this.playBtn = false;
+    }
+    else {
+      this.btn.className = 'play';
+      this.playBtn = true;
+      this.video.pause();
+    }
+
+    this.video.addEventListener('timeupdate', () => {
+      var juicePos = this.video.currentTime / this.video.duration;
+      this.juice.style.width = juicePos * 100 + '%';
+      if (this.video.ended) {
+        this.btn.className = 'play';
+        this.playBtn = true;
+      }
+    });
+  }
+
+
+  openFullscreen(): void {
+    if (this.video.requestFullscreen){
+      this.video.requestFullscreen();
+    }
+  }
 }
+

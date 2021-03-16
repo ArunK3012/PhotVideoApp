@@ -1,17 +1,19 @@
+@import '../lists/lists.component.scss';
+
 .favouriteList {
-  position: relative;
-  top: -256px;
+  position: absolute;
+  top: 60%;
   margin-left: 17%;
   width: 67.5%;
   height: 133vh;
 
   .photo {
     width: 22.9%;
-    height: 190px;
+    height: 120px;
     overflow: hidden;
     display: inline-block;
     margin-right: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
 
     a {
       text-decoration: none;
@@ -34,54 +36,58 @@
     }
 
     .favourite {
-      width: 11%;
+      width: 10.5%;
       position: relative;
-      margin-left: 82%;
-      top: 4%;
+      margin-left: 80%;
+      top: 2%;
     }
 
     .videoIcon {
-      width: 26%;
+      width: 18%;
       position: relative;
-      left: 37%;
-      top: 22%;
+      left: 36.2%;
+      top: 12.8%;
     }
 
     .details {
-      position: relative;
-      top: 66%;
-      width: 100%;
+      position: absolute;
+      margin-top: 6.3%;
+      width: 23%;
 
       .photographer {
-        width: 16%;
+        width: 14%;
         margin-left: 5%;
+        margin-top: 3%;
       }
 
       p {
         position: relative;
         font-size: 14px;
-        top: -25px;
-        left: 25%;
         color: white;
       }
     }
 
     .detailsVideo {
       position: relative;
-      top: 38%;
+      top: 22%;
       width: 100%;
-
-      .photographer {
-        width: 16%;
-        margin-left: 5%;
-      }
+      height: 21%;
 
       p {
         position: relative;
         font-size: 14px;
-        top: -23px;
-        left: 25%;
         color: white;
+
+        .photographer {
+          width: 14%;
+          margin-left: 5%;
+        }
+
+        span {
+          position: absolute;
+          top: 20%;
+          margin-left: 3.2%;
+        }
       }
     }
   }
@@ -112,7 +118,7 @@
 
     .photo {
       width: 30%;
-      height: 150px;
+      height: 100px;
       margin-left: 1%;
 
       .favourite {
@@ -120,7 +126,11 @@
       }
 
       .details {
-        top: 54%;
+        p {
+          .photographer {
+            width: 21%;
+          }
+        }
       }
     }
   }
@@ -136,6 +146,20 @@
       .favouriteAdded {
         left: 73%;
       }
+
+      .details {
+        margin-top: 10%;
+
+        p {
+          .photographer {
+            width: 31%;
+          }
+
+          span {
+            top: 4px;
+          }
+        }
+      }
     }
   }
 }
@@ -144,48 +168,71 @@
 
   .favouriteList {
     width: 92%;
-    margin-left: 4%;
+    margin-left: 3%;
+    top: 57%;
 
     .photo {
       width: 100%;
+      height: 190px;
+
+      .bg-image {
+        background-size: 100% !important;
+        background-position-y: center !important;
+      }
 
       .videoIcon {
-        top: 18%;
-        width: 16%;
+        top: 24%;
+        width: 15%;
+        left: 42.3%;
       }
 
       .favourite {
-        width: 6.5%;
+        width: 7.5%;
         position: relative;
         margin-left: 89%;
-        top: 8%;
+        top: 13.5%;
       }
 
-      .details {
-        top: 58%;
+      // .favouriteAdded {
+      //   left: 87%;
+      //   top: 4%;
+      // }
 
-        .photographer {
-          width: 10%;
-        }
+      .details {
+        margin-top: 32%;
+        width: 100%;
 
         p {
-          margin-left: 18%;
-          left: 0;
+          //   margin-left: 18%;
+
+          .photographer {
+            width: 9%;
+            top: 3.2%;
+          }
+
+          span {
+            left: 4%;
+            top: 11px;
+          }
         }
       }
 
       .detailsVideo {
-        top: 58%;
-
-        .photographer {
-          width: 10%;
-          margin-left: 6%;
-        }
+        top: 54.3%;
 
         p {
-          margin-left: 19%;
           left: 0;
           top: -26px;
+
+          .photographer {
+            width: 9%;
+            margin-left: 5%;
+          }
+
+          span {
+            left: 14.5%;
+            top: 3px;
+          }
         }
       }
     }

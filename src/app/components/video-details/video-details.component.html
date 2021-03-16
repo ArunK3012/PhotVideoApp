@@ -4,9 +4,12 @@
     <div class="bg-image">
         <img class="image" *ngIf="!playVideo" src="{{data.image}}" alt="">
         <div class="video" *ngIf="playVideo">
-          <video class="video1" controls (click)="toggleVideo($event)" preload="auto" #videoPlayer>
-            <source class="video2" [src]="image" type="video/mp4"/>
-          </video>
+            <!-- <video class="video1" id="videooo" (click)="toggleVideo($event)"
+                preload="auto" [src]="image" type="video/mp4" #videoPlayer>
+            </video> -->
+            <video class="video1" id="video-pause" (click)="toggleVideo($event)" #videoPlayer>
+                <source class="video2" [src]="image" type="video/mp4"/>
+              </video>
         </div>
         <div class="header">
             <img (click)="goBack()" class="arrow" src="../../../assets/arrow back.png" alt="">
@@ -16,12 +19,10 @@
         <div class="favourite">
             <p>Lorem Picsum</p>
             <button class="favouriteAdded" *ngIf="!favouriteAdded(data)" (click)="addToFavourite(data)">
-                <img class="heart" src="../../../assets/details_heart.png"
-                    alt="" >
+                <img class="heart" src="../../../assets/details_heart.png" alt="">
             </button>
-            <button (click)="removeFavourite(data.id)" class="favouriteAdded" *ngIf="favouriteAdded(data)">
-                <img  class="heart"
-                    src="../../../assets/details_heart_filled.png" alt="" >
+            <button (click)="removeFavourite(data)" class="favouriteAdded" *ngIf="favouriteAdded(data)">
+                <img class="heart" src="../../../assets/details_heart_filled.png" alt="">
             </button>
         </div>
         <div class="middle" *ngIf="playBtn">
@@ -37,6 +38,20 @@
             <button (click)="removeFavourite(data.id)" class="favouriteAdded" *ngIf="favouriteAdded(data)">
                 <img class="androidheart" src="../../../assets/details_heart_filled.png" alt="">
             </button>
+        </div>
+        <div class="controls">
+            <div class="buttons" (click)="toggle()">
+                <button (click)="playVideoButton()" id="play-pause" type="submit">
+                </button>
+            </div>
+            <div class="bar">
+                <div class="redBar" id="bar">
+                    <!-- <img *ngIf="playBtn" src="../../../assets/video_time.png" alt=""> -->
+                </div>
+            </div>
+            <div class="fullScreen">
+                <button id="zoom" (click)="openFullscreen()"></button>
+            </div>
         </div>
     </div>
 </div>

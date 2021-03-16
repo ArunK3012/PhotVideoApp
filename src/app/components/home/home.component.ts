@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
   onSearch(): void {
     this.commonservice.searchItem = this.searchData;
     this.searchItem.emit(this.searchData);
+    // this.router.navigateByUrl('/home/photo');
   }
 
   scroll(e: Event): any {
@@ -72,5 +73,9 @@ export class HomeComponent implements OnInit {
       sy = r.scrollTop || b.scrollTop || 0;
       return sy;
     }
+  }
+
+  openSearch(): void{
+    document.getElementById('android-input-scroll')?.setAttribute('style', 'display: block');
   }
 }

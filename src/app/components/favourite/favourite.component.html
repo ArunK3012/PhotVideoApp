@@ -1,14 +1,20 @@
 <app-home (searchItem)="displayVideo($event)"></app-home>
 
+<!-- 
+    <app-lists [data]="data" [image]="image" [photographer]="photographer" [video]="video"></app-lists>
+</div> -->
+
 <div class="favouriteList">
     <!-- <div class="photo"> -->
     <div class="photo" *ngFor="let list of details; let i= index">
         <div class="bg-image" routerLink="/home/photo/details/{{list.id}}"
-            [ngStyle]="{background: 'url('+ list.src.portrait + ')'}">
+            [ngStyle]="{background: 'url('+ list.src.landscape + ')'}">
             <img (click)="removeFavourite($event, list)" class="favourite" src="../../../assets/fav_added.png" alt="">
             <div class="details">
-                <img class="photographer" src="../../../assets/photographer_icon.png" alt="">
-                <p> {{list.photographer}}</p>
+                <p>
+                    <img class="photographer" src="../../../assets/photographer_icon.png" alt="">
+                    <span>{{list.photographer | titlecase}}</span>
+                </p>
             </div>
         </div>
     </div>
@@ -18,8 +24,10 @@
             <img (click)="removeFavourite($event, list)" class="favourite" src="../../../assets/fav_added.png" alt="">
             <img class="videoIcon" src="../../../assets/video_play.png" alt="">
             <div class="detailsVideo">
-                <img class="photographer" src="../../../assets/photographer_icon.png" alt="">
-                <p> {{list.user.name}}</p>
+                <p>
+                    <img class="photographer" src="../../../assets/photographer_icon.png" alt="">
+                    <span>{{list.user.name | titlecase}}</span>
+                </p>
             </div>
         </div>
     </div>

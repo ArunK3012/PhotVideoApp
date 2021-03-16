@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {  from, Observable, of, throwError } from 'rxjs';
-import { catchError} from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -31,10 +30,16 @@ export class ApiServiceService {
     const url = `${this.BASEURL}v1/search?page=${pageNo}&per_page=20&query=${data}`;
 
     const details = JSON.parse(localStorage.getItem('PhotoList') || 'null');
-    if (details !== null) {
+    if (details !== undefined) {
       for (let i = 0; i < details.length; i++) {
-        if (details[i].page === pageNo) {
-          return of(details[i]);
+        const item = details[i].next_page;
+        if (item !== undefined) {
+          const id = item.split('=').pop();
+          if (id === data) {
+            if (details[i].page === pageNo) {
+              return of(details[i]);
+            }
+          }
         }
       }
     }
@@ -48,14 +53,17 @@ export class ApiServiceService {
 
   getVideoList(data: string, page: number): Observable<any>{
 
-    // const url = `${this.BASEURL}videos/search?query=${data}&per_page=20`;
     const url = `${this.BASEURL}videos/search?page=${page}&per_page=20&query=${data}`;
 
     const details = JSON.parse(localStorage.getItem('VideoList') || 'null');
     if (details !== null) {
       for (let i = 0; i < details.length; i++) {
-        if (details[i].page === page) {
-          return of(details[i]);
+        const item = details[i].url;
+        const id = item.split('/')[5];
+        if (id === data) {
+          if (details[i].page === page) {
+            return of(details[i]);
+          }
         }
       }
     }

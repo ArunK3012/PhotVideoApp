@@ -1,5 +1,3 @@
-import { Favourite } from './../inteface/favourite';
-import { environment } from './../../../environments/environment';
 import { CommonServiceService } from './../../service/common-service.service';
 import { ApiServiceService } from './../../service/api-service.service';
 import { Component, HostListener, OnInit } from '@angular/core';
@@ -12,16 +10,12 @@ import { Component, HostListener, OnInit } from '@angular/core';
 export class VideoComponent implements OnInit {
 
   data: any = [];
-  searchName = '';
-  favourite: Favourite = {
-    image: '',
-    photographer: '',
-    video: '',
-    id: 1,
-  };
+  searchName = 'animal';
   pageLength = 21;
   pageNo = 1;
-  // isFavourite = false;
+  image: any = [];
+  video = true;
+  photographer: any = [];
 
   @HostListener('window:scroll')
   onScroll(e: Event): void {
@@ -34,47 +28,37 @@ export class VideoComponent implements OnInit {
   ngOnInit(): void {
     this.searchName = this.commonService.searchItem;
     this.service.getVideoList(this.searchName, this.pageNo).subscribe( res => {
-      console.log(res);
       this.data = res.videos;
+      for (let i = 0; i< this.data.length; i++) {
+        this.image.push(this.data[i].image);
+        this.photographer.push(this.data[i].user.name);
+      }
     });
   }
 
   displayVideo(name: string): void{
     this.searchName = name;
-    this.service.getVideoList(name, this.pageNo).subscribe( res => {
+    console.log(this.searchName);
+    this.service.getVideoList(this.searchName, this.pageNo).subscribe( res => {
       this.data = res.videos;
+      for (let i = 0; i< res.videos.length; i++) {
+        this.image.push(res.videos[i].image);
+        this.photographer.push(res.videos[i].user.name);
+      }
     });
-  }
-
-  addToFavourite(id: any): void{
-    // this.isFavourite = true;
-    // this.commonService.saveFavourites(id, environment.favourite);
-    this.commonService.saveFavourites(id);
-  }
-
-  removeFavourite(id: number): void{
-    // this.isFavourite = false;
-    // this.commonService.removeCurrentFavourite(id, environment.favourite);
-    this.commonService.removeCurrentFavourite(id);
-  }
-
-  // isFavourite(id: number){
-  //   const list = this.commonService.getFavourites(environment.favourite);
-  //   return list.includes(id);
-  // }
-
-  favouriteAdded(index: number): any{
-    const item = this.data[index];
-    return this.commonService.checkFavourites(item);
   }
 
   scroll(e: Event) {
     if (window.pageYOffset !== undefined) {
       this.pageLength = pageYOffset;
-      if (this.pageLength > (840 * this.pageNo)) {
+      if (this.pageLength > (390 * this.pageNo)) {
         this.pageNo = this.pageNo + 1;
         this.service.getVideoList(this.searchName, this.pageNo).subscribe(res => {
           this.data = this.data.concat(res.videos);
+          for (let i = 0; i < res.videos.length; i++) {
+            this.image.push(res.videos[i].image);
+            this.photographer.push(res.videos[i].user.name);
+          }
         });
       }
       return pageYOffset;

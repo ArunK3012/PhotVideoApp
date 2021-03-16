@@ -12,21 +12,22 @@ export class CommonServiceService {
   constructor() { }
 
   saveFavourites(data: any): void {
-    // this.favourites = JSON.parse(localStorage.getItem('favourites') || '');
+    this.favourites = JSON.parse(localStorage.getItem('Favourites') || '');
     this.favourites.push(data);
-    // localStorage.setItem('favourites', JSON.stringify(this.favourites));
+    localStorage.setItem('Favourites', JSON.stringify(this.favourites));
   }
 
   removeCurrentFavourite(data: any): void{
-    // this.favourites = JSON.parse(localStorage.getItem('favourites') || '');
-    // if (this.favourites !== null) {
+    this.favourites = JSON.parse(localStorage.getItem('Favourites') || '');
+    if (this.favourites !== null) {
       const index = this.favourites.findIndex(item => item.id === data.id);
       this.favourites.splice(index, 1);
-    // }
+      localStorage.setItem('Favourites', JSON.stringify(this.favourites));
+    }
   }
 
   checkFavourites(data: Favourite): boolean {
-    // this.favourites = JSON.parse(localStorage.getItem('favourites') || 'null');
+    this.favourites = JSON.parse(localStorage.getItem('Favourites') || 'null');
     if (this.favourites !== null) {
       return this.favourites.findIndex(item => item.id === data.id) >= 0;
     }
@@ -34,7 +35,7 @@ export class CommonServiceService {
   }
 
   getFavourites(): any{
-    // this.favourites = JSON.parse(localStorage.getItem('favourites') || 'null');
+    this.favourites = JSON.parse(localStorage.getItem('Favourites') || 'null');
     return this.favourites;
   }
 }

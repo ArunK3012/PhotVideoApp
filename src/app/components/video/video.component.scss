@@ -1,198 +1,21 @@
-// @import '../photo/photo.component.scss';
-
-.videoList {
+.displayList {
   position: absolute;
   top: 60%;
   margin-left: 17%;
   width: 67.5%;
-  height: 139vh;
+  height: 100vh;
 
-  .photo {
-    width: 22.9%;
-    height: 190px;
-    overflow: hidden;
-    display: inline-block;
-    margin-right: 2%;
-    margin-bottom: 2%;
-
-    .bg-image {
-      width: 100%;
-    height: 100%;
-    background-repeat: no-repeat !important;
-    background-position-y: center !important;
-    background-position-x: center !important;
-    background-size: cover !important;
-    }
-
-    img {
-      width: 100%;
-    }
-
-    .favourite {
-      width: 22px;
-      position: relative;
-      // margin-left: 82%;
-      top: 4%;
-    }
-
-    .androidFav {
-      display: none;
-      width: 22px;
-      position: relative;
-      // margin-left: 89%;
-      top: 8%;
-    }
-
-    .favouriteAdded {
-      border: none;
-      background: none;
-      left: 77%;
-      top: 0%;
-      position: relative;
-    }
-
-    .videoIcon {
-      width: 26%;
-    position: relative;
-    left: 17%;
-    top: 36%;
-    }
-
-    .details {
-      position: relative;
-      top: 52%;
-      width: 100%;
-
-      p {
-        position: relative;
-        font-size: 14px;
-        color: white;
-
-        .photographer {
-          width: 15%;
-          margin-left: 5%;
-        }
-
-        span {
-          position: absolute;
-          left: 23%;
-          top: 15%;
-        }
-      }
-    }
-  }
-
-  .home-footer {
-    height: 14vh;
-    text-align: center;
-    opacity: 76%;
-    background-color: #F2F2F2;
-    box-shadow: 0 1px 0 0 #a7a8a9;
-    width: 148%;
-    position: relative;
-    left: -25%;
-    top: -1%;
-
-    .footer {
-      color: #BABABA;
-      font-size: 14px;
-      font-weight: 500;
-      position: relative;
-      top: 43%;
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .videoList {
-
-    .photo {
-      width: 30%;
-      height: 150px;
-      margin-left: 1%;
-
-      .favourite {
-        // margin-left: 75%;
-      }
-
-      .videoIcon{
-        top: 35%;
-      }
-
-      .favouriteAdded{
-        left: 73%;
-      }
-
-      .details{
-        top: 52%;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 550px) {
-
-  .videoList {
-
-    .photo {
-      width: 47%;
-
-      .favouriteAdded {
-        left: 73%;
-      }
-    }
+  .videoIcon{
+    position: absolute;
+    top: 20%;
   }
 }
 
 @media screen and (max-width: 420px) {
 
-  .videoList {
+  .displayList {
     width: 92%;
-    margin-left: 4%;
-
-    .photo {
-      width: 100%;
-      height: 180px;
-
-      .favourite {
-        display: none;
-      }
-
-      .androidFav {
-        display: block;
-      }
-
-      .favouriteAdded {
-        left: 86%;
-      }
-
-      .details {
-        // top: 66%;
-        top: 40%;
-
-        p {
-          //   margin-left: 18%;
-
-          .photographer {
-            width: 10%;
-          }
-
-          span {
-            left: 17%;
-            top: 20%;
-          }
-        }
-      }
-
-      .videoIcon {
-        width: 15%;
-    left: 27%;
-    top: 30%;
-      }
-    }
-
-    .home-footer {
-      display: none;
-    }
+    margin-left: 3%;
+    top: 57%;
   }
 }

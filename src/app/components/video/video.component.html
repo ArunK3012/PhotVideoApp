@@ -1,32 +1,5 @@
 <app-home (searchItem)="displayVideo($event)"></app-home>
 
-<div class="videoList">
-    <div class="photo" *ngFor="let list of data; let i= index">
-        <div class="bg-image" [ngStyle]="{background: 'url('+ list.image + ')'}">
-            <!--  -->
-            <!-- <img class="background" src="{{list.image}}" alt=""> -->
-            <button class="favouriteAdded" *ngIf="!favouriteAdded(i)" (click)="addToFavourite(list)">
-                <img class="favourite" src="../../../assets/favourite.png" alt="">
-                <img class="androidFav" src="../../../assets/android_fav.png" alt="">
-            </button>
-            <button (click)="removeFavourite(list.id)" class="favouriteAdded" *ngIf="favouriteAdded(i)">
-                <img class="favourite" src="../../../assets/fav_added.png" alt="">
-                <img class="androidFav" src="../../../assets/android_filled_heart.png" alt="">
-            </button>
-            <a routerLink="details/{{list.id}}">
-                <img class="videoIcon" src="../../../assets/video_play.png" alt="">
-            </a>
-            <div class="details">
-                <p>
-                    <img class="photographer" src="../../../assets/photographer_icon.png" alt="">
-                    <span>{{list.user.name}}</span>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="home-footer">
-        <div class="footer">
-            &#169; Robosoft Technologies 1996-2020
-        </div>
-    </div>
+<div class="displayList">
+    <app-lists [data]="data" [image]="image" [photographer]="photographer" [video]="video"></app-lists>
 </div>

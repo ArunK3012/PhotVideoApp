@@ -61,31 +61,31 @@
             </div>
             <div class="scrollSearchAndroid">
                 <img class="androidScroll" src="../../../assets/android-logo.png" alt="">
-                <div class="input-group rounded" id="android-input-scroll">
+                <img class="scrollSearch" (click)="openSearch()" src="../../../assets/white_search.png" alt="">
+                <div class="input-group rounded" style="display: none;" id="android-input-scroll">
                     <input type="search" class="form-control rounded" placeholder="Search photos, videos, artists"
                         aria-label="Search" aria-describedby="search-addon" [(ngModel)]="searchData" (keyup.enter)="onSearch()"/>
-                        <img id="search" src="../../../assets/search.png" alt="">
-                    <img src="../../../assets/white_search.png" alt="" (click)="onSearch()">
+                        <img routerLink="/home/photo" id="search" src="../../../assets/search.png" (click)="onSearch()" alt="">
                 </div>
             </div>
         </div>
     </div>
     <div *ngIf="homePage" class="home-body">
         <div class="title">
-            <div class="btn-router">
-                <button routerLink="/home/photo" routerLinkActive="active" class="photos">Photos</button>
-                <button routerLink="/home/video" routerLinkActive="active" class="videos">Videos</button>
-            </div>
-            <button routerLink="/home/favourite" routerLinkActive="active" class="favourites">Favourite</button>
+            <!-- <div class="btn-router"> -->
+                <button routerLink="/home/photo" routerLinkActive="active" class="photos"><hr class="line"> Photos</button>
+                <button routerLink="/home/video" routerLinkActive="active" class="videos"><hr class="line">Videos</button>
+            <!-- </div> -->
+            <button routerLink="/home/favourite" routerLinkActive="active" class="favourites"><hr class="line">Favourite</button>
         </div>
     </div>
     <div *ngIf="!scrollPage" class="scroll-home-body">
         <div class="title">
-            <div class="btn-router">
-                <button routerLink="/home/photo" routerLinkActive="active" class="photos">Photos</button>
-                <button routerLink="/home/video" routerLinkActive="active" class="videos">Videos</button>
-            </div>
-            <button routerLink="/home/favourite" routerLinkActive="active" class="favourites">Favourite</button>
+            <!-- <div class="btn-router"> -->
+                <button routerLink="/home/photo" routerLinkActive="active" class="photos"><hr class="line">Photos</button>
+                <button routerLink="/home/video" routerLinkActive="active" class="videos"><hr class="line">Videos</button>
+            <!-- </div> -->
+            <button routerLink="/home/favourite" routerLinkActive="active" class="favourites"><hr class="line">Favourite</button>
         </div>
     </div>
 </body>

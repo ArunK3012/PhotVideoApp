@@ -1,9 +1,22 @@
 <div class="photo" *ngFor="let list of data; let i= index">
-    <div class="bg-image" [ngStyle]="{background: 'url('+ list.src.portrait + ')'}">
-        <img class="favourite" src="../../../assets/Path-1.png" alt="">
+    <div routerLink="details/{{list.id}}" class="bg-image" [ngStyle]="{background: 'url('+ image[i] + ')'}">
+        <button class="favouriteAdded" *ngIf="!favouriteAdded(i)" (click)="addToFavourite($event, list)">
+            <img class="favourite" src="../../../assets/favourite.png" alt="">
+        </button>
+        <button (click)="removeFavourite($event, list)" class="favouriteAdded" *ngIf="favouriteAdded(i)">
+            <img class="favourite" src="../../../assets/fav_added.png" alt="">
+        </button>
+        <img *ngIf="video" class="videoIcon" src="../../../assets/video_play.png" alt="">
         <div class="details">
-            <img class="photographer" src="../../../assets/photgrapher_icon.png" alt="">
-            <p> {{list.photographer}}</p>
+            <p>
+                <img class="photographer" src="../../../assets/photographer_icon.png" alt="">
+                <span>{{photographer[i] | titlecase}}</span>
+            </p>
         </div>
+    </div>
+</div>
+<div class="home-footer">
+    <div class="footer">
+        &#169; Robosoft Technologies 1996-2020
     </div>
 </div>

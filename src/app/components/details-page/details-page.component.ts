@@ -28,7 +28,7 @@ export class DetailsPageComponent implements OnInit {
     this.service.getPhotoDetails(id).subscribe(res => {
       this.data = res;
       this.image = res.src.landscape;
-      this.androidImage = res.src.large2x;
+      this.androidImage = res.src.original;
     });
   }
 

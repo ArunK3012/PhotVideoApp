@@ -1,8 +1,6 @@
-import { environment } from './../../../environments/environment';
 import { CommonServiceService } from './../../service/common-service.service';
 import { ApiServiceService } from './../../service/api-service.service';
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
-import { Favourite } from '../inteface/favourite';
 
 @Component({
   selector: 'app-photo',
@@ -14,21 +12,12 @@ export class PhotoComponent implements OnInit {
   @Output() searchItem = new EventEmitter<string>();
 
   data: any = [];
-  video: any = [];
   searchName = 'animal';
-  // background: any = [];
-  isFavourite = false;
-  bgImage: any;
-  artist = '';
-  favourite: Favourite = {
-    image: '',
-    photographer: '',
-    video: '',
-    id: 1,
-  };
+  image: any = [];
+  photographer: any = [];
   pageLength = 21;
   pageNo = 1;
-  photoList: Favourite[] = [];
+  video = false;
 
   @HostListener('window:scroll')
   onScroll(e: Event): void {
@@ -42,48 +31,40 @@ export class PhotoComponent implements OnInit {
     this.searchName = this.commonService.searchItem;
     this.service.getPhotoList(this.searchName, this.pageNo).subscribe( res => {
       this.data = (res.photos);
-      // this.photoList.push(this.data);
+      console.log(this.data);
+      for (let i = 0; i< this.data.length; i++) {
+        this.image.push(this.data[i].src.landscape);
+        this.photographer.push(this.data[i].photographer);
+      }
     });
   }
 
   displayPhoto(name: string): void{
     this.searchName = name;
-    this.service.getPhotoList(name, this.pageNo).subscribe( res => {
+    console.log(this.searchName);
+    this.service.getPhotoList(this.searchName, this.pageNo).subscribe( res => {
       this.data = (res.photos);
-      // this.photoList.push(this.data);
+      console.log(this.data);
+      this.image = [];
+      this.photographer = [];
+      for (let i = 0; i < res.photos.length; i++) {
+        this.image.push(res.photos[i].src.landscape);
+        this.photographer.push(res.photos[i].photographer);
+      }
     });
   }
-
-  addToFavourite(event: MouseEvent, id: any): void{
-    // this.isFavourite = true;
-    this.commonService.saveFavourites(id);
-    event.stopImmediatePropagation();
-  }
-
-  removeFavourite(event: MouseEvent, id: number): void{
-    // this.isFavourite = false;
-    this.commonService.removeCurrentFavourite(id);
-    event.stopPropagation();
-  }
-
-  favouriteAdded(index: number): any{
-    const item = this.data[index];
-    return this.commonService.checkFavourites(item);
-  }
-
-  // isFavourite(id: number){
-  //   const list = this.commonService.getFavourites(environment.favourite);
-  //   return list.includes(id);
-  // }
 
   scroll(e: Event) {
     if (window.pageYOffset !== undefined) {
       this.pageLength = pageYOffset;
-      if (this.pageLength > (840 * this.pageNo)) {
+      if (this.pageLength > (390 * this.pageNo)) {
         this.pageNo = this.pageNo + 1;
         this.service.getPhotoList(this.searchName, this.pageNo).subscribe(res => {
           this.data = this.data.concat(res.photos);
-          console.log(res);
+          for (let i = 0; i< res.photos.length; i++) {
+            this.image.push(res.photos[i].src.landscape);
+            this.photographer.push(res.photos[i].photographer);
+          }
         });
       }
       return pageYOffset;

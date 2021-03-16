@@ -1,30 +1,5 @@
 <app-home (searchItem)="displayPhoto($event)"></app-home>
 
-<div class="photoList">
-    <div class="photo" *ngFor="let list of data; let i= index">
-        <!-- <a > -->
-        <div routerLink="details/{{list.id}}" class="bg-image"
-            [ngStyle]="{background: 'url('+ list.src.portrait + ')'}">
-            <button class="favouriteAdded" *ngIf="!favouriteAdded(i)" (click)="addToFavourite($event, list)">
-                <img class="favourite" src="../../../assets/favourite.png" alt="">
-                <img class="androidFav" src="../../../assets/android_fav.png" alt="">
-            </button>
-            <button (click)="removeFavourite($event, list.id)" class="favouriteAdded" *ngIf="favouriteAdded(i)">
-                <img class="favourite" src="../../../assets/fav_added.png" alt="">
-                <img class="androidFav" src="../../../assets/android_filled_heart.png" alt="">
-            </button>
-            <div class="details">
-                <p>
-                    <img class="photographer" src="../../../assets/photographer_icon.png" alt="">
-                    <span>{{list.photographer}}</span>
-                </p>
-            </div>
-        </div>
-        <!-- </a> -->
-    </div>
-    <div class="home-footer">
-        <div class="footer">
-            &#169; Robosoft Technologies 1996-2020
-        </div>
-    </div>
+<div class="displayList">
+    <app-lists [data]="data" [image]="image" [photographer]="photographer" [video]="video"></app-lists>
 </div>
